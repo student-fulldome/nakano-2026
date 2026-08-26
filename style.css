@@ -236,6 +236,13 @@ section:not(#hero) {
   border-bottom: 1px solid var(--border);
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.9);
 }
+.sub-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-soft);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
 
 /* ===========================
    ABOUT
@@ -293,9 +300,6 @@ dd {
   flex-wrap: wrap;
   gap: 0.6rem;
 }
-.program-card .school-list {
-  margin-top: 1rem;
-}
 
 /* ===========================
    ABOUT — PROGRAMS (見どころ)
@@ -306,9 +310,14 @@ dd {
 .program-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
   gap: 1.5rem;
 }
 .program-card {
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+  align-content: start;
   background: rgba(22, 22, 68, 0.4);
   border: 1px solid var(--border);
   padding: 1.5rem;
@@ -316,17 +325,43 @@ dd {
 .program-card-title {
   font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
   line-height: 1.5;
+}
+.program-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-content: start;
+}
+.program-card-text--with-image {
+  flex-direction: row;
+  align-items: flex-start;
+}
+.program-card-text--with-image p {
+  flex: 1;
+  min-width: 0;
+}
+.program-card-text-img {
+  flex: 0 0 auto;
+  width: 6rem;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  cursor: zoom-in;
+  transition: opacity 0.2s;
+}
+.program-card-text-img:hover {
+  opacity: 0.85;
 }
 .program-card-tag {
   display: inline-block;
   font-size: 0.68rem;
-  font-weight: 400;
-  color: var(--accent-soft);
-  border: 1px solid var(--accent-soft);
-  border-radius: 999px;
-  padding: 0.15rem 0.6rem;
+  font-weight: 700;
+  color: var(--bg);
+  background: var(--accent-soft);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.2rem 0.55rem;
   margin-left: 0.5rem;
   vertical-align: middle;
 }
@@ -340,7 +375,6 @@ dd {
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 1.25rem;
 }
 .program-card-images img {
   flex: 0 1 auto;
@@ -356,16 +390,9 @@ dd {
 .program-card-images img:hover {
   opacity: 0.85;
 }
-.program-card-images--fill img {
-  width: auto;
-  height: 160px;
-  max-width: 100%;
-  max-height: none;
-}
 .program-card-venue {
   font-size: 0.78rem;
   color: var(--fg-mid);
-  margin-top: 1rem;
   padding-top: 0.9rem;
   border-top: 1px solid var(--border);
 }
@@ -502,12 +529,14 @@ dd {
   margin-bottom: 0.25rem;
 }
 .work-dept {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--fg-mid);
+  font-weight: 500;
 }
 .work-seminar {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   color: var(--fg-mid);
+  font-weight: 500;
 }
 .work-duration {
   display: inline-flex;
@@ -780,14 +809,12 @@ dd {
   border: 1px solid var(--border);
   padding: 1.25rem;
 }
-.schedule-group-label {
-  font-size: 0.72rem;
-  color: var(--accent-soft);
-  letter-spacing: 0.08em;
+.schedule-group-label.badge {
+  border: none;
+  padding: 0;
+  font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 0.85rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid var(--border);
 }
 .schedule-group-list {
   display: flex;
@@ -801,6 +828,9 @@ dd {
 .schedule-group-name {
   font-size: 0.82rem;
   color: var(--fg);
+}
+.schedule-group-name--long {
+  font-size: 0.72rem;
 }
 .schedule-group-work {
   font-size: 0.75rem;
@@ -910,4 +940,6 @@ footer {
   .work-card { padding: 1rem; }
   .work-meta { flex-wrap: wrap; }
   .work-duration { margin-left: 0; }
+  .program-card-text--with-image { flex-direction: column; }
+  .program-card-text-img { width: 8rem; align-self: center; }
 }

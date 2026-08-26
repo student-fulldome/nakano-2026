@@ -213,7 +213,7 @@
       lightboxImg.src = '';
     }
 
-    document.querySelectorAll('.program-card-images img').forEach(function (img) {
+    document.querySelectorAll('.program-card-images img, .program-card-text-img').forEach(function (img) {
       img.addEventListener('click', function () {
         openLightbox(img.src, img.alt);
       });

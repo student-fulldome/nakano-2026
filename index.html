@@ -24,9 +24,9 @@
         <span></span><span></span><span></span>
       </button>
       <ul id="nav-menu" class="nav-menu" role="list">
-        <li><a href="#about">About</a></li>
-        <li><a href="#works">Works</a></li>
-        <li><a href="#schedule">スケジュール</a></li>
+        <li><a href="#about">イベント概要</a></li>
+        <li><a href="#works">作品一覧</a></li>
+        <li><a href="#schedule">上映スケジュール</a></li>
         <li><a href="#program">イベント詳細</a></li>
       </ul>
     </div>
@@ -56,7 +56,7 @@
 
     <section id="about">
       <div class="container">
-        <h2 class="section-heading">About</h2>
+        <h2 class="section-heading">イベント概要</h2>
         <dl class="info-list">
             <div class="info-row">
               <dt>会期</dt>
@@ -93,16 +93,18 @@
             </div>
         </dl>
         <div class="about-programs">
-          <h3 class="section-heading">プログラム</h3>
+          <h3 class="sub-heading">プログラム</h3>
           <div class="program-cards">
             <div class="program-card">
               <h4 class="program-card-title">学生作品ドーム上映会<span class="program-card-tag">会期中は常時鑑賞可能</span></h4>
-              <p>次世代の映像クリエイターを目指す学生たちが手がけたフルドーム映像作品を、なかのZEROプラネタリウムのドームスクリーンいっぱいに上映します。<br>実写、CG、手描きアニメーションなど、それぞれが得意とする表現手法を用いて、自らの思想や感情、アイデアを形にした多彩な作品をお楽しみいただけます。ドーム映像ならではの空間表現を、ぜひご体感ください。</p>
-              <ul class="school-list" role="list">
-                <li class="badge badge-musabi">武蔵野美術大学</li>
-                <li class="badge badge-tamagawa">玉川大学</li>
-                <li class="badge badge-tpu">東京工芸大学</li>
-              </ul>
+              <div class="program-card-text">
+                <p>次世代の映像クリエイターを目指す学生たちが手がけたフルドーム映像作品を、なかのZEROプラネタリウムのドームスクリーンいっぱいに上映します。<br>実写、CG、手描きアニメーションなど、それぞれが得意とする表現手法を用いて、自らの思想や感情、アイデアを形にした多彩な作品をお楽しみいただけます。ドーム映像ならではの空間表現を、ぜひご体感ください。</p>
+                <ul class="school-list" role="list">
+                  <li class="badge badge-musabi">武蔵野美術大学</li>
+                  <li class="badge badge-tamagawa">玉川大学</li>
+                  <li class="badge badge-tpu">東京工芸大学</li>
+                </ul>
+              </div>
               <div class="program-card-images">
                 <img src="img/032A5210.jpg" alt="プラネタリウムでのドーム映像上映の様子" loading="lazy">
                 <img src="img/032A5411.jpg" alt="プラネタリウムでのドーム映像上映の様子" loading="lazy">
@@ -111,13 +113,16 @@
             </div>
             <div class="program-card">
               <h4 class="program-card-title">プラネタリウムに絵を描こう！<span class="program-card-tag">ワークショップ企画</span></h4>
-              <p>星がちりばめられた用紙を見ながら、あなただけの星座を自由に想像して描いてみましょう。描いた作品はその場でスキャンされ、プラネタリウムの夜空に浮かび上がります。映像やデザインを学ぶ大学生が、制作をお手伝いします。<br>子どもから大人まで、どなたでもご参加いただけます。</p>
-              <div class="program-card-images program-card-images--fill">
-                <img src="img/Gem.png" alt="星座を描く台紙" loading="lazy">
+              <div class="program-card-text program-card-text--with-image">
+                <p>星の配置から想像をふくらませ、あなただけの星座を自由に描いてみましょう。<br>描いた作品はその場でスキャンされ、プラネタリウムの夜空に浮かび上がります。映像やデザインを学ぶ大学生が、みなさんの制作をお手伝いします。<br>子どもから大人まで、どなたでもご参加いただけます。</p>
+                <img src="img/cardboard_sample_Cru.png" alt="星座を描く台紙のサンプル" class="program-card-text-img" loading="lazy">
+              </div>
+              <div class="program-card-images">
                 <img src="img/032A5548.jpg" alt="プラネタリウムに投影された参加者の作品" loading="lazy">
+                <img src="img/032A5523.jpg" alt="プラネタリウムに投影された参加者の作品" loading="lazy">
               </div>
               <p class="program-card-venue">
-                <span class="dd-line">お絵かき会場：西館 中2階</span>
+                <span class="dd-line">お絵かき会場：西館 中2階（自動販売機前のまるテーブル）</span>
                 <span class="dd-line">投影会場：西館 4階プラネタリウム</span>
               </p>
             </div>
@@ -128,7 +133,7 @@
 
     <section id="works">
       <div class="container">
-        <h2 class="section-heading">Works</h2>
+        <h2 class="section-heading">作品一覧</h2>
         <div id="works-container" class="works-grid">
           <p class="loading">読み込み中…</p>
         </div>
@@ -137,11 +142,11 @@
 
     <section id="schedule">
       <div class="container">
-        <h2 class="section-heading">スケジュール</h2>
+        <h2 class="section-heading">上映スケジュール</h2>
 
         <div class="schedule-block">
           <h3 class="schedule-block-title">1ターン（30分）の流れ<span class="schedule-time-range">両日・毎サイクル共通</span></h3>
-          <p class="schedule-note">1回30分のうち、<strong>ワークショップ投影は必ず学生作品の上映より先</strong>に流れます。中2階で描いた絵は、次に始まる30分の枠の冒頭（0分・30分から約20秒後）で投影されます。<br>例：13:10に描いた絵は「13:30〜の回」で投影されます。</p>
+          <p class="schedule-note">1回30分のうち、<strong>ワークショップ投影は必ず学生作品の上映より先</strong>に流れます。中2階で描いた絵は、次に始まる30分の枠の冒頭で投影されます。<br>例：13:10に描いた絵は「13:30〜の回」で投影されます。</p>
           <div class="turn-flow">
             <div class="turn-flow-bar">
               <span class="turn-flow-seg turn-flow-seg--workshop" style="flex-grow:620" title="ワークショップタイトル画像20秒＋ワークショップ投影10分">ワークショップ投影</span>
@@ -152,12 +157,12 @@
               <li>
                 <span class="turn-flow-time">① 開始直後</span>
                 <span class="turn-flow-label">ワークショップ投影<em>（中2階で描いた絵が映ります）</em></span>
-                <span class="turn-flow-dur">10分</span>
+                <span class="turn-flow-dur">10分ほど</span>
               </li>
               <li>
                 <span class="turn-flow-time">② 続いて</span>
                 <span class="turn-flow-label">学生作品上映</span>
-                <span class="turn-flow-dur">18分程度</span>
+                <span class="turn-flow-dur">15分～20分ほど</span>
               </li>
             </ol>
           </div>
@@ -187,13 +192,13 @@
               <tr><td>16:00 – 16:30</td><td><span class="ws-yes">あり</span></td><td><span class="badge badge-musabi">武蔵野美術大学②</span></td></tr>
               <tr><td>16:30 – 17:00</td><td><span class="ws-yes">あり</span></td><td><span class="badge badge-tpu">東京工芸大学</span></td></tr>
               <tr class="schedule-table-divider"><td colspan="3">17:00以降　連続上映（ワークショップ投影なし）</td></tr>
-              <tr><td>17:00 – 17:15</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-musabi">武蔵野美術大学③</span></td></tr>
-              <tr><td>17:15 – 17:34</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-musabi">武蔵野美術大学①</span></td></tr>
-              <tr><td>17:34 – 17:49</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-tamagawa">玉川大学</span></td></tr>
-              <tr><td>17:49 – 18:08</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-musabi">武蔵野美術大学②</span></td></tr>
-              <tr><td>18:08 – 18:26</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-tpu">東京工芸大学</span></td></tr>
-              <tr><td>18:26 – 18:42</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-musabi">武蔵野美術大学③</span></td></tr>
-              <tr><td>18:42 – 19:00</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-musabi">武蔵野美術大学①</span></td></tr>
+              <tr><td>17:00 – 17:16</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-musabi">武蔵野美術大学③</span></td></tr>
+              <tr><td>17:16 – 17:33</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-musabi">武蔵野美術大学①</span></td></tr>
+              <tr><td>17:33 – 17:49</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-tamagawa">玉川大学</span></td></tr>
+              <tr><td>17:49 – 18:09</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-musabi">武蔵野美術大学②</span></td></tr>
+              <tr><td>18:09 – 18:27</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-tpu">東京工芸大学</span></td></tr>
+              <tr><td>18:27 – 18:43</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-musabi">武蔵野美術大学③</span></td></tr>
+              <tr><td>18:43 – 19:01</td><td><span class="ws-no">なし</span></td><td><span class="badge badge-musabi">武蔵野美術大学①</span></td></tr>
             </tbody>
           </table>
           </div>
@@ -232,7 +237,7 @@
           <h3 class="schedule-block-title">武蔵野美術大学 グループ分け</h3>
           <div class="schedule-groups">
             <div class="schedule-group">
-              <p class="schedule-group-label">グループ①</p>
+              <p class="schedule-group-label badge badge-musabi">武蔵野美術大学①</p>
               <ul class="schedule-group-list" role="list">
                 <li><span class="schedule-group-name">櫻庭 幸明</span><span class="schedule-group-work">ポストストーン</span></li>
                 <li><span class="schedule-group-name">岩崎 然</span><span class="schedule-group-work">主観・視界</span></li>
@@ -244,7 +249,7 @@
               </ul>
             </div>
             <div class="schedule-group">
-              <p class="schedule-group-label">グループ②</p>
+              <p class="schedule-group-label badge badge-musabi">武蔵野美術大学②</p>
               <ul class="schedule-group-list" role="list">
                 <li><span class="schedule-group-name">最所 晴樹</span><span class="schedule-group-work">跨</span></li>
                 <li><span class="schedule-group-name">西沢 賛美</span><span class="schedule-group-work">（タイトル未定）</span></li>
@@ -252,11 +257,11 @@
                 <li><span class="schedule-group-name">矢野 龍一</span><span class="schedule-group-work">怪雨</span></li>
                 <li><span class="schedule-group-name">春口 侑愛・井上 優花</span><span class="schedule-group-work">トロッコ</span></li>
                 <li><span class="schedule-group-name">ソン ユリ・國吉 摩耶・菊地 由知江</span><span class="schedule-group-work">Eat Me If You Can!</span></li>
-                <li><span class="schedule-group-name">中村 文香・チェンルオハン・関根 彩乃・村上 優</span><span class="schedule-group-work">よだかの星</span></li>
+                <li><span class="schedule-group-name schedule-group-name--long">関根 彩乃・村上 優・チェンルオハン・中村 文香</span><span class="schedule-group-work">よだかの星</span></li>
               </ul>
             </div>
             <div class="schedule-group">
-              <p class="schedule-group-label">グループ③</p>
+              <p class="schedule-group-label badge badge-musabi">武蔵野美術大学③</p>
               <ul class="schedule-group-list" role="list">
                 <li><span class="schedule-group-name">A. F.</span><span class="schedule-group-work">flicker</span></li>
                 <li><span class="schedule-group-name">宇野 可純</span><span class="schedule-group-work">夢中</span></li>
