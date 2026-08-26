@@ -721,10 +721,10 @@ dd {
   box-shadow: 0 0 6px rgba(0, 178, 236, 0.7);
 }
 .ws-no {
-  color: var(--fg-dim);
+  color: var(--fg-mid);
 }
 .ws-no::before {
-  border: 1px solid var(--fg-dim);
+  border: 1.5px solid var(--fg-mid);
 }
 .schedule-table-wrap {
   overflow-x: auto;
