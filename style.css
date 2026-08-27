@@ -412,6 +412,7 @@ dd {
   font-size: 0.8rem;
   border: 1px solid;
   font-weight: 400;
+  white-space: nowrap;
 }
 .badge-musabi   { color: var(--c-musabi);   border-color: var(--c-musabi); }
 .badge-tamagawa { color: var(--c-tamagawa); border-color: var(--c-tamagawa); }
@@ -780,6 +781,7 @@ dd {
   color: var(--fg-dim);
   letter-spacing: 0.05em;
   border-bottom: 1px solid var(--border);
+  word-break: keep-all;
 }
 .schedule-table td:first-child {
   color: var(--fg-mid);
