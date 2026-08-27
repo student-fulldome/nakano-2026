@@ -858,7 +858,7 @@ dd {
   gap: 1.5rem;
 }
 .schedule-groups + .schedule-groups { margin-top: 1.5rem; }
-.schedule-groups--2 { grid-template-columns: repeat(2, 1fr); }
+.schedule-groups--2 { grid-template-columns: repeat(3, 1fr); }
 .schedule-groups--3 { grid-template-columns: repeat(3, 1fr); }
 .schedule-group {
   background: rgba(22, 22, 68, 0.4);
