@@ -45,23 +45,32 @@
     return 'other';
   }
 
+  /* 見出しに使う学校名（学部・大学院などの区別はまとめて表示） */
+  var SCHOOL_LABELS = {
+    musabi:   '武蔵野美術大学',
+    tamagawa: '玉川大学',
+    tpu:      '東京工芸大学',
+  };
+
+  /* ── 学校名見出し HTML ── */
+  function renderSchoolHeading(sc, school) {
+    var label = SCHOOL_LABELS[sc] || school;
+    return `<h3 id="works-${sc}" class="works-school-heading works-school-heading-${sc}">${esc(label)}</h3>`;
+  }
+
   /* ── 作品カード HTML ── */
-  function renderWork(w, idx) {
+  function renderWork(w) {
     /* 全画像リスト（keyvisual を先頭に、空文字を除外） */
     const allImages = [
       w.keyvisual,
       w.subvisual01, w.subvisual02, w.subvisual03, w.subvisual04,
     ].filter(Boolean);
 
-    /* メイン表示エリア */
-    const firstSrc = allImages.length > 0 ? `img/${esc(allImages[0])}` : null;
-    const mainContent = firstSrc
-      ? `<img src="${firstSrc}" alt="${esc(w.title)}" class="dome-main-img" loading="lazy">`
-      : `<div class="dome-no-image">NO IMAGE</div>`;
-
-    /* サムネイルストリップ（全画像を並べる、1〜5枚） */
-    const thumbsHtml = allImages.length > 0
-      ? `<div class="work-thumbs" role="list" aria-label="画像一覧">
+    /* メイン表示エリア（画像が1枚もない場合はビジュアル領域ごと省略し、詰めて表示） */
+    let visualHtml = '';
+    if (allImages.length > 0) {
+      const mainContent = `<img src="img/${esc(allImages[0])}" alt="${esc(w.title)}" class="dome-main-img" loading="lazy">`;
+      const thumbsHtml = `<div class="work-thumbs" role="list" aria-label="画像一覧">
           ${allImages.map((f, i) => `
             <button
               class="work-thumb${i === 0 ? ' is-active' : ''}"
@@ -71,12 +80,17 @@
               type="button"
             ><img src="img/${esc(f)}" alt="" loading="lazy"></button>
           `).join('')}
-        </div>`
-      : '';
+        </div>`;
+      visualHtml = `<div class="work-visual">
+          <div class="dome-image">${mainContent}</div>
+          ${thumbsHtml}
+        </div>`;
+    }
 
     /* テキスト各フィールド */
     const sc          = schoolClass(w.school);
-    const indexStr    = String(idx + 1).padStart(2, '0');
+    /* 表示番号は大学ごとに 0〜N で採番された data.json の id を使用（学校ごとに 1〜N+1 で独立） */
+    const indexStr    = String(w.id + 1).padStart(2, '0');
     const deptHtml    = w.department  ? `<span class="work-dept">${esc(w.department)}</span>`  : '';
     const seminarHtml = w.seminar     ? `<span class="work-seminar">${esc(w.seminar)}</span>`  : '';
     const durHtml     = w.videoduration
@@ -94,13 +108,10 @@
       : '';
 
     return `
-      <article class="work-card" id="work-${indexStr}">
-        <div class="work-visual">
-          <div class="dome-image">${mainContent}</div>
-          ${thumbsHtml}
-        </div>
+      <article class="work-card" id="work-${sc}-${indexStr}">
+        ${visualHtml}
         <div class="work-info">
-          <p class="work-index">No.${indexStr}</p>
+          <p class="work-index work-index-${sc}">No.${indexStr}</p>
           <div class="work-meta">
             <span class="badge badge-${sc}">${esc(w.school)}</span>
             ${deptHtml}
@@ -153,7 +164,24 @@
     .then(function (works) {
       var container = document.getElementById('works-container');
       if (!container) return;
-      container.innerHTML = works.map(renderWork).join('');
+
+      /* 作品一覧の学校表示順: 玉川大学 → 東京工芸大学 → 武蔵野美術大学 */
+      var SCHOOL_ORDER = ['tamagawa', 'tpu', 'musabi'];
+      works = works.slice().sort(function (a, b) {
+        return SCHOOL_ORDER.indexOf(schoolClass(a.school)) - SCHOOL_ORDER.indexOf(schoolClass(b.school));
+      });
+
+      var html = '';
+      var prevSc = null;
+      works.forEach(function (w) {
+        var sc = schoolClass(w.school);
+        if (sc !== prevSc) {
+          html += renderSchoolHeading(sc, w.school);
+          prevSc = sc;
+        }
+        html += renderWork(w);
+      });
+      container.innerHTML = html;
       bindThumbSwap(container);
     })
     .catch(function (err) {

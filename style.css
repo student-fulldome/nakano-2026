@@ -115,8 +115,9 @@ ul[role="list"], ol[role="list"] { list-style: none; }
 }
 .nav-logo-sub {
   display: block;
-  font-size: 0.65rem;
-  color: var(--fg-mid);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--fg);
   margin-top: 2px;
 }
 .nav-menu {
@@ -130,6 +131,38 @@ ul[role="list"], ol[role="list"] { list-style: none; }
   text-decoration: none;
 }
 .nav-menu a:hover { color: var(--fg); }
+
+/* 「作品一覧」ホバーで大学ごとのアンカーへ移動できるサブメニュー */
+.nav-item-has-sub { position: relative; }
+.nav-submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0;
+  list-style: none;
+  background: rgba(6, 6, 14, 0.97);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+}
+.nav-item-has-sub:hover .nav-submenu,
+.nav-item-has-sub:focus-within .nav-submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-submenu a {
+  display: block;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
 
 /* Hamburger */
 .nav-toggle {
@@ -433,6 +466,23 @@ dd {
   grid-column: 1 / -1;
 }
 
+/* 学校名見出し */
+.works-school-heading {
+  grid-column: 1 / -1;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--fg);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-top: 1rem;
+  scroll-margin-top: calc(var(--nav-h) + 1rem);
+}
+.works-school-heading:first-child { margin-top: 0; }
+.works-school-heading-musabi   { color: var(--c-musabi);   border-color: var(--c-musabi); }
+.works-school-heading-tamagawa { color: var(--c-tamagawa); border-color: var(--c-tamagawa); }
+.works-school-heading-tpu      { color: var(--c-tpu);      border-color: var(--c-tpu); }
+
 /* Work card */
 .work-card {
   display: flex;
@@ -467,17 +517,6 @@ dd {
   object-fit: cover;
   display: block;
 }
-.dome-no-image {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--fg-dim);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-}
-
 /* サムネイルストリップ（最大5枚） */
 .work-thumbs {
   display: flex;
@@ -525,6 +564,14 @@ dd {
   border-left: 2px solid var(--accent);
   padding-left: 0.45rem;
   margin-bottom: 0.2rem;
+}
+.work-index-tpu {
+  color: var(--c-tpu);
+  border-left-color: var(--c-tpu);
+}
+.work-index-tamagawa {
+  color: var(--c-tamagawa);
+  border-left-color: var(--c-tamagawa);
 }
 
 .work-meta {
@@ -808,9 +855,11 @@ dd {
 }
 .schedule-groups {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
+.schedule-groups + .schedule-groups { margin-top: 1.5rem; }
+.schedule-groups--2 { grid-template-columns: repeat(2, 1fr); }
+.schedule-groups--3 { grid-template-columns: repeat(3, 1fr); }
 .schedule-group {
   background: rgba(22, 22, 68, 0.4);
   border: 1px solid var(--border);
@@ -842,6 +891,14 @@ dd {
 .schedule-group-work {
   font-size: 0.75rem;
   color: var(--fg-mid);
+}
+.schedule-group-title::before { content: '「'; }
+.schedule-group-title::after  { content: '」'; }
+.schedule-group-dur {
+  margin-left: 0.5em;
+  font-size: 0.7rem;
+  color: var(--fg-dim);
+  white-space: nowrap;
 }
 
 /* ===========================
@@ -926,6 +983,26 @@ footer {
   .nav-menu.open { display: flex; }
   .nav-menu a { font-size: 1.25rem; color: var(--fg); }
 
+  /* サブメニューはホバーできないため、常時展開して縦に並べる */
+  .nav-item-has-sub { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+  .nav-submenu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: none;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    margin-top: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .nav-submenu a { font-size: 0.95rem; padding: 0; }
+
   /* Sections */
   section:not(#hero) { padding: 3.5rem 0; }
   .program-cards { grid-template-columns: 1fr; gap: 1.25rem; }
@@ -944,6 +1021,7 @@ footer {
   .info-list { flex-direction: column; gap: 1.5rem; }
   .nav-inner { padding: 0 1rem; }
   .nav-logo-main { font-size: 0.78rem; }
+  .nav-logo-sub  { font-size: 0.7rem; }
   .work-card { padding: 1rem; }
   .work-meta { flex-wrap: wrap; }
   .work-duration { margin-left: 0; }

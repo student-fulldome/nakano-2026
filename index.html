@@ -25,7 +25,14 @@
       </button>
       <ul id="nav-menu" class="nav-menu" role="list">
         <li><a href="#about">イベント概要</a></li>
-        <li><a href="#works">作品一覧</a></li>
+        <li class="nav-item-has-sub">
+          <a href="#works">作品一覧</a>
+          <ul class="nav-submenu" role="list">
+            <li><a href="#works-tamagawa">玉川大学</a></li>
+            <li><a href="#works-tpu">東京工芸大学</a></li>
+            <li><a href="#works-musabi">武蔵野美術大学</a></li>
+          </ul>
+        </li>
         <li><a href="#schedule">上映スケジュール</a></li>
         <li><a href="#program">イベント詳細</a></li>
       </ul>
@@ -241,41 +248,68 @@
         </div>
 
         <div class="schedule-block">
-          <h3 class="schedule-block-title">武蔵野美術大学 グループ分け</h3>
-          <div class="schedule-groups">
+          <h3 class="schedule-block-title">大学別 グループ分け</h3>
+          <div class="schedule-groups schedule-groups--2">
+            <div class="schedule-group">
+              <p class="schedule-group-label badge badge-tamagawa">玉川大学</p>
+              <ul class="schedule-group-list" role="list">
+                <li><span class="schedule-group-name">小嶋 一輝</span><span class="schedule-group-work"><span class="schedule-group-title">箱</span><span class="schedule-group-dur">3:18</span></span></li>
+                <li><span class="schedule-group-name">川本 鈴華</span><span class="schedule-group-work"><span class="schedule-group-title">くるくるまわる</span><span class="schedule-group-dur">4:20</span></span></li>
+                <li><span class="schedule-group-name">真銅 咲来</span><span class="schedule-group-work"><span class="schedule-group-title">朗読『桜間中庸 詩 二篇』</span><span class="schedule-group-dur">2:00</span></span></li>
+                <li><span class="schedule-group-name">有木 穂美</span><span class="schedule-group-work"><span class="schedule-group-title">大学3年生の夏休み</span><span class="schedule-group-dur">5:25</span></span></li>
+              </ul>
+            </div>
+            <div class="schedule-group">
+              <p class="schedule-group-label badge badge-tpu">東京工芸大学</p>
+              <ul class="schedule-group-list" role="list">
+                <li><span class="schedule-group-name">石田 まなみ</span><span class="schedule-group-work"><span class="schedule-group-title">Drifting Borders</span><span class="schedule-group-dur">0:50</span></span></li>
+                <li><span class="schedule-group-name">岩見 紗雪</span><span class="schedule-group-work"><span class="schedule-group-title">〈監〉測者</span><span class="schedule-group-dur">0:45</span></span></li>
+                <li><span class="schedule-group-name">大里 颯雅</span><span class="schedule-group-work"><span class="schedule-group-title">Luster Spider</span><span class="schedule-group-dur">1:17</span></span></li>
+                <li><span class="schedule-group-name">木村 心優</span><span class="schedule-group-work"><span class="schedule-group-title">As Seen From There</span><span class="schedule-group-dur">2:46</span></span></li>
+                <li><span class="schedule-group-name">久保 妃雛</span><span class="schedule-group-work"><span class="schedule-group-title">ちいさな幻</span><span class="schedule-group-dur">1:30</span></span></li>
+                <li><span class="schedule-group-name">齋藤 香織</span><span class="schedule-group-work"><span class="schedule-group-title">Abyssal Swarm(アビサル・スウォーム)</span><span class="schedule-group-dur">2:17</span></span></li>
+                <li><span class="schedule-group-name">齊藤 萌未</span><span class="schedule-group-work"><span class="schedule-group-title">おやゆび姫</span><span class="schedule-group-dur">2:11</span></span></li>
+                <li><span class="schedule-group-name">SHENG HEJIA</span><span class="schedule-group-work"><span class="schedule-group-title">海の底に沈んだ部屋</span><span class="schedule-group-dur">2:20</span></span></li>
+                <li><span class="schedule-group-name">道家 理歩</span><span class="schedule-group-work"><span class="schedule-group-title">MIDNIGHT CIRCUS</span><span class="schedule-group-dur">1:30</span></span></li>
+                <li><span class="schedule-group-name">山内 大雅</span><span class="schedule-group-work"><span class="schedule-group-title">なにが出るかな</span><span class="schedule-group-dur">1:13</span></span></li>
+                <li><span class="schedule-group-name">若月 香歩</span><span class="schedule-group-work"><span class="schedule-group-title">ネコの僕と君と</span><span class="schedule-group-dur">0:47</span></span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="schedule-groups schedule-groups--3">
             <div class="schedule-group">
               <p class="schedule-group-label badge badge-musabi">武蔵野美術大学①</p>
               <ul class="schedule-group-list" role="list">
-                <li><span class="schedule-group-name">櫻庭 幸明</span><span class="schedule-group-work">ポストストーン</span></li>
-                <li><span class="schedule-group-name">岩崎 然</span><span class="schedule-group-work">主観・視界</span></li>
-                <li><span class="schedule-group-name">高杉 陽仁・伊藤 璃大</span><span class="schedule-group-work">振り返らないで</span></li>
-                <li><span class="schedule-group-name">黒川 和舞</span><span class="schedule-group-work">パススルー</span></li>
-                <li><span class="schedule-group-name">天川 優奈</span><span class="schedule-group-work">petit aventure</span></li>
-                <li><span class="schedule-group-name">森 大起</span><span class="schedule-group-work">点、線、面、天</span></li>
-                <li><span class="schedule-group-name">星野 陽平</span><span class="schedule-group-work">Lint</span></li>
+                <li><span class="schedule-group-name">櫻庭 幸明</span><span class="schedule-group-work"><span class="schedule-group-title">ポストストーン</span><span class="schedule-group-dur">4:00</span></span></li>
+                <li><span class="schedule-group-name">岩崎 然</span><span class="schedule-group-work"><span class="schedule-group-title">主観・視界</span><span class="schedule-group-dur">1:46</span></span></li>
+                <li><span class="schedule-group-name">高杉 陽仁・伊藤 璃大</span><span class="schedule-group-work"><span class="schedule-group-title">振り返らないで</span><span class="schedule-group-dur">2:39</span></span></li>
+                <li><span class="schedule-group-name">黒川 和舞</span><span class="schedule-group-work"><span class="schedule-group-title">パススルー</span><span class="schedule-group-dur">1:30</span></span></li>
+                <li><span class="schedule-group-name">天川 優奈</span><span class="schedule-group-work"><span class="schedule-group-title">petit aventure</span><span class="schedule-group-dur">2:32</span></span></li>
+                <li><span class="schedule-group-name">森 大起</span><span class="schedule-group-work"><span class="schedule-group-title">点、線、面、天</span><span class="schedule-group-dur">3:50</span></span></li>
+                <li><span class="schedule-group-name">星野 陽平</span><span class="schedule-group-work"><span class="schedule-group-title">Lint</span><span class="schedule-group-dur">0:45</span></span></li>
               </ul>
             </div>
             <div class="schedule-group">
               <p class="schedule-group-label badge badge-musabi">武蔵野美術大学②</p>
               <ul class="schedule-group-list" role="list">
-                <li><span class="schedule-group-name">最所 晴樹</span><span class="schedule-group-work">跨</span></li>
-                <li><span class="schedule-group-name">西沢 賛美</span><span class="schedule-group-work">（タイトル未定）</span></li>
-                <li><span class="schedule-group-name">中村 文香</span><span class="schedule-group-work">ルテン</span></li>
-                <li><span class="schedule-group-name">矢野 龍一</span><span class="schedule-group-work">怪雨</span></li>
-                <li><span class="schedule-group-name">春口 侑愛・井上 優花</span><span class="schedule-group-work">トロッコ</span></li>
-                <li><span class="schedule-group-name">ソン ユリ・國吉 摩耶・菊地 由知江</span><span class="schedule-group-work">Eat Me If You Can!</span></li>
-                <li><span class="schedule-group-name schedule-group-name--long">関根 彩乃・村上 優・チェンルオハン・中村 文香</span><span class="schedule-group-work">よだかの星</span></li>
+                <li><span class="schedule-group-name">最所 晴樹</span><span class="schedule-group-work"><span class="schedule-group-title">跨</span><span class="schedule-group-dur">3:10</span></span></li>
+                <li><span class="schedule-group-name">西沢 賛美</span><span class="schedule-group-work"><span class="schedule-group-title">Smoke</span><span class="schedule-group-dur">1:03</span></span></li>
+                <li><span class="schedule-group-name">中村 文香</span><span class="schedule-group-work"><span class="schedule-group-title">ルテン</span><span class="schedule-group-dur">1:10</span></span></li>
+                <li><span class="schedule-group-name">矢野 龍一</span><span class="schedule-group-work"><span class="schedule-group-title">怪雨</span><span class="schedule-group-dur">3:06</span></span></li>
+                <li><span class="schedule-group-name">春口 侑愛・井上 優花</span><span class="schedule-group-work"><span class="schedule-group-title">トロッコ</span><span class="schedule-group-dur">2:30</span></span></li>
+                <li><span class="schedule-group-name">ソン ユリ・國吉 摩耶・菊地 由知江</span><span class="schedule-group-work"><span class="schedule-group-title">Eat Me If You Can!</span><span class="schedule-group-dur">1:38</span></span></li>
+                <li><span class="schedule-group-name schedule-group-name--long">関根 彩乃・村上 優・チェンルオハン・中村 文香</span><span class="schedule-group-work"><span class="schedule-group-title">よだかの星</span><span class="schedule-group-dur">7:09</span></span></li>
               </ul>
             </div>
             <div class="schedule-group">
               <p class="schedule-group-label badge badge-musabi">武蔵野美術大学③</p>
               <ul class="schedule-group-list" role="list">
-                <li><span class="schedule-group-name">A. F.</span><span class="schedule-group-work">flicker</span></li>
-                <li><span class="schedule-group-name">宇野 可純</span><span class="schedule-group-work">夢中</span></li>
-                <li><span class="schedule-group-name">北野 萌</span><span class="schedule-group-work">Nebbia</span></li>
-                <li><span class="schedule-group-name">ペン イハン</span><span class="schedule-group-work">3½</span></li>
-                <li><span class="schedule-group-name">岡田 桃子・池谷 麻那</span><span class="schedule-group-work">Children's Dream</span></li>
-                <li><span class="schedule-group-name">イオアニス ポリフロノプロス</span><span class="schedule-group-work">Fragments</span></li>
+                <li><span class="schedule-group-name">A. F.</span><span class="schedule-group-work"><span class="schedule-group-title">flicker</span><span class="schedule-group-dur">1:30</span></span></li>
+                <li><span class="schedule-group-name">宇野 可純</span><span class="schedule-group-work"><span class="schedule-group-title">夢中</span><span class="schedule-group-dur">3:00</span></span></li>
+                <li><span class="schedule-group-name">北野 萌</span><span class="schedule-group-work"><span class="schedule-group-title">Nebbia</span><span class="schedule-group-dur">1:00</span></span></li>
+                <li><span class="schedule-group-name">ペン イハン</span><span class="schedule-group-work"><span class="schedule-group-title">3½</span><span class="schedule-group-dur">3:44</span></span></li>
+                <li><span class="schedule-group-name">岡田 桃子・池谷 麻那</span><span class="schedule-group-work"><span class="schedule-group-title">Children's Dream</span><span class="schedule-group-dur">3:20</span></span></li>
+                <li><span class="schedule-group-name">イオアニス ポリフロノプロス</span><span class="schedule-group-work"><span class="schedule-group-title">Fragments</span><span class="schedule-group-dur">2:35</span></span></li>
               </ul>
             </div>
           </div>
