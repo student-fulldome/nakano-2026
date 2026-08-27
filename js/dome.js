@@ -334,10 +334,20 @@
     tx = e.touches[0].clientX; ty = e.touches[0].clientY; lastInteract = Date.now();
   }, { passive: true });
 
-  var useGyro = false, gyroAlpha = 0, gyroBeta = 90;
+  /* beta が ±90°付近（端末を立てて縦持ちする姿勢）ではセンサーのジンバルロックにより
+     alpha が瞬間的に大きく暴れることがあるため、円環を考慮した指数移動平均で平滑化する */
+  var useGyro = false, gyroAlpha = 0, gyroBeta = 90, gyroInit = false;
   function onOrientation(e) {
     if (e.alpha === null) return;
-    useGyro = true; gyroAlpha = e.alpha; gyroBeta = e.beta; lastInteract = Date.now();
+    useGyro = true; lastInteract = Date.now();
+
+    if (!gyroInit) {
+      gyroAlpha = e.alpha; gyroBeta = e.beta; gyroInit = true;
+      return;
+    }
+    var da = ((e.alpha - gyroAlpha + 540) % 360) - 180; /* -180〜180 の最短差分 */
+    gyroAlpha = (gyroAlpha + da * 0.15 + 360) % 360;
+    gyroBeta += (e.beta - gyroBeta) * 0.15;
   }
   function enableGyro() { window.addEventListener('deviceorientation', onOrientation); }
   if (typeof DeviceOrientationEvent !== 'undefined' &&
@@ -377,8 +387,9 @@
       tTheta += 0.00035;
     }
 
-    phi   += (tPhi   - phi)   * 0.06;
-    theta += (tTheta - theta) * 0.06;
+    phi += (tPhi - phi) * 0.06;
+    var dTheta = ((tTheta - theta + Math.PI) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2) - Math.PI;
+    theta += dTheta * 0.06;
 
     camera.lookAt(
       Math.sin(phi) * Math.sin(theta),
