@@ -337,12 +337,18 @@
   /* beta が ±90°付近（端末を立てて縦持ちする姿勢）ではセンサーのジンバルロックにより
      alpha が瞬間的に大きく暴れることがあるため、円環を考慮した指数移動平均で平滑化する */
   var useGyro = false, gyroAlpha = 0, gyroBeta = 90, gyroInit = false;
+  /* ジャイロ有効化時点の端末姿勢を基準点として記録し、そこからの相対変化のみを
+     視点に反映する（絶対角度で直接マッピングすると、有効化時に端末が水平/垂直の
+     どちらだったかによって天頂が正面に飛んでくるなど視点が不安定になるため） */
+  var gyroAlphaOffset = 0, gyroBetaOffset = 0;
+  var basePhi = phi, baseTheta = theta;
   function onOrientation(e) {
     if (e.alpha === null) return;
     useGyro = true; lastInteract = Date.now();
 
     if (!gyroInit) {
       gyroAlpha = e.alpha; gyroBeta = e.beta; gyroInit = true;
+      gyroAlphaOffset = e.alpha; gyroBetaOffset = e.beta;
       return;
     }
     var da = ((e.alpha - gyroAlpha + 540) % 360) - 180; /* -180〜180 の最短差分 */
@@ -381,8 +387,10 @@
     }
 
     if (useGyro) {
-      tPhi   = clampPhi(degToRad(90 - gyroBeta));
-      tTheta = degToRad(gyroAlpha);
+      /* 有効化時の姿勢からの相対変化分だけ基準視点（basePhi/baseTheta）からずらす */
+      var dAlpha = ((gyroAlpha - gyroAlphaOffset + 540) % 360) - 180; /* 周回対応 */
+      tPhi   = clampPhi(basePhi - degToRad(gyroBeta - gyroBetaOffset));
+      tTheta = baseTheta + degToRad(dAlpha);
     } else if (Date.now() - lastInteract > 4000) {
       tTheta += 0.00035;
     }
