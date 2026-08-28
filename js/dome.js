@@ -224,7 +224,7 @@
     '  /* 上半球: ドームマスター画像 (クロスフェード) */',
     '  /* 水平線を超えた分（下半球側）は円の外にはみ出さないようクランプ */',
     '  float r_dome = min(phi, PI * 0.5) / (PI * 0.5) * 0.5;',
-    '  vec2  uv_dome = vec2(0.5 + r_dome * cos(theta), 0.5 + r_dome * sin(theta));',
+    '  vec2  uv_dome = vec2(0.5 - r_dome * cos(theta), 0.5 + r_dome * sin(theta));',
     '  vec4  domeCol = mix(texture2D(uTexA, uv_dome), texture2D(uTexB, uv_dome), uBlend);',
     '',
     '  /* 下半球: 座席テクスチャ */',
